@@ -6,9 +6,12 @@ from AppCoder.models import *
 def inicio(request):
     return HttpResponse("Esta es la vista de bienvenida")
 def curso(request):
-    
-    curso1 = Curso(nombre = "Python", camada = 44775)
-    curso1.save()
-    return HttpResponse(f"El curso que he creado es {curso1.nombre} y la camada es {curso1.camada}")
+    return HttpResponse("Esta es la vista de los cursos")
+def estudiantes(request):
+    return HttpResponse("Esta es la vista de los estudiantes")
+def profesores(request):
+    return HttpResponse("Esta es la vista de los profesores")
+def entregables(request):
+    return HttpResponse("Esta es la vista de los trabajos entregables")
 
 
