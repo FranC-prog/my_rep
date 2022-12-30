@@ -1,0 +1,18 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{%block titulo%}
+Cree un Profesor
+{%endblock%}
+
+{%block descripcion%}
+En esta vista se crean los profesores
+{%endblock%}
+{%block form%}
+    <form action="" method="POST" center> {% csrf_token %}
+        
+        <table>{{profeform.as_table}}</table>
+        
+        <input type="submit" value="Confirmar">
+        
+    </form>
+{%endblock%}

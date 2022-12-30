@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {%for profe in teachers%}
+    <p>Nombre: {{profe.nombre}}</p>
+    <p>Apellido: {{profe.apellido}}</p>
+    <p>Email: {{profe.email}}</p>
+    <p>Profesion: {{profe.profesion}}</p>
+    <p>Curso: {{profe.curso}}</p>
+    <button><a href="{% url 'ProfesorEliminar' profe.nombre %}">Eliminar Profesor</a></button>
+    <button><a href="{% url 'ProfesorEditar' profe.nombre %}">Editar Profesor</a></button>
+    {%endfor%}
+    <br>
+    <button><a href="{% url 'ProfesCrear' %}">Crear Profesor</a></button>
+
+</body>
+</html>
