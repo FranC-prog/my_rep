@@ -1,0 +1,13 @@
+{%extends 'AppCoder/padre.html'%}
+{%block titulo%}
+Agrega un jugador
+{%endblock%}
+{%block descripcion%}
+En esta vista se añaden los jugadores
+{%endblock%}
+{%block form%}    
+<form action="" method="POST"> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Enviar">
+    </form>
+{%endblock%}

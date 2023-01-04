@@ -1,38 +1,38 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Curso(models.Model):
+class Juego(models.Model):
     def __str__(self):
-        return f"Nombre: {self.nombre} --- Camada: {self.camada}"
-    
+        return f"Nombre: {self.nombre}"
     
     nombre = models.CharField(max_length=50)
-    camada = models.IntegerField()
+    descripcion = models.CharField(max_length = 400)
+    resena = models.CharField(max_length = 700)
 
-class Profesor(models.Model):
+class EmpresaDeJuegos(models.Model):
     
     def __str__(self):
-        return f"Nombre: {self.nombre} --- Curso: {self.curso}"
+        return f"Nombre: {self.nombre}"
     
     nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254)
-    curso = models.CharField(max_length=50)
-    profesion = models.CharField(max_length=60)
+    juegosDeEmpresa = models.CharField(max_length = 100)
+    paisOrigen = models.CharField(max_length=254)
+    
 
-class Estudiante(models.Model):
+class JugadoresProfesionales(models.Model):
     def __str__(self):
-        return f"Nombre: {self.nombre} --- Apellido: {self.apellido}"
+        return f"Nombre: {self.nombre} ---- Tag: {self.tag}"
     
     nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254)
+    tag = models.CharField(max_length = 50)
+    juego = models.CharField(max_length=50)
 
-class Entregable(models.Model):
-    def __str__(self):
-        return f"Nombre: {self.nombre} --- Fecha de Entrega: {self.fechaDeEntrega}"
-    nombre = models.CharField(max_length=50)
-    fechaDeEntrega = models.DateField()
-    entregado = models.BooleanField()
+    
+class Avatar(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to= "avatares", null = True, blank = True)
+    
+    
 
     

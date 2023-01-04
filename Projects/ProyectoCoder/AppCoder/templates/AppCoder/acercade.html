@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>My Web Blog</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
+        <title>Acerca de mí</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -17,10 +17,11 @@
         <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
+        {% load static %}
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{%url 'Inicio' %}">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -29,7 +30,7 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'AcercaDe' %}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Contacto' %}">Contactame</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4">¡Hola, {{user.username}}!</a></li>
                         {%if not request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Login' %}">Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Registro' %}">Registrarse</a></li>
@@ -37,86 +38,37 @@
                         {%if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'editarUsuario' %}">Editar Usuario</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Logout' %}">Cerrar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4">¡Hola, {{user.username}}!</a></li>
-                        {% with user.avatar_set.first as miAvatar %}
-                        {%if miAvatar%}
-                        <img src="{{miAvatar.imagen.url}}" alt="El usuario no posee foto de perfil" style="max-width: 30px; max-height:30px;">
                         {%endif%}
-
-                        {% endwith %}
-                        {% endif %}
-
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('/static/AppCoder/assets/img/home-bg.jpg')">
+        <header class="masthead" style="background-image: url('/static/AppCoder/assets/img/about-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>{% block titulo %}
-                                {% endblock %}
-
-                            </h1>
-                            <span class="subheading">{%block descripcion%}
-                                {%endblock%}
-                                {%block searchbar%}
-                                {%endblock%}
-                            </span>
+                        <div class="page-heading">
+                            <h1>Acerca De Mí</h1>
+                            <span class="subheading">Esto es lo que hago.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                {%block show%}
-                {%endblock%}
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    {%block form%}
-                    {%endblock%}
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="https://thegoodgamer.es/los-videojuegos-un-medio-para-lidiar-con-la-salud-mental/#:~:text=El%2030%25%20de%20los%20jugadores,salud%20mental%20durante%20el%20confinamiento.">
-                            <h2 class="post-title">Los videojuegos, un medio para lidiar con la salud mental</h2>
-                            <h3 class="post-subtitle">Debido al aumento del tiempo de uso de los videojuegos a raíz del encierro en la pandemia, se realizó un estudio para ver cómo afectaba a la salud mental de los usuarios</h3>
-                        </a>
-                        <p class="post-meta">
-                            Vea el artículo en el link de arriba
-                        </p>
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Mi nombre es Francisco Calveyra, actualmente tengo 19 años, soy de Pilar y soy estudiante de Ingeniería Informática. Tengo diversos hobbies, entre ellos programar, del cual hago uso frecuentemente debido a mi carrera.</p>
+                        <p>Actualmente me encuentro en mi 2do año de la carrera, teniendo dominio básico de Python gracias a la misma y, a su vez, gracias al curso de CoderHouse.</p>
+                        <p>Soy una persona apasionada por los videojuegos desde que tengo memoria, y me gustaría compartir mi pasión por ustedes en este blog y, a su vez, que ustedes compartan su opinión acerca de diversos juegos.</p>
+                        <p>¡Espero que lo disfruten!</p>
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="https://lamenteesmaravillosa.com/beneficios-psicologicos-de-los-videojuegos/"><h2 class="post-title">Los beneficios psicológicos de los videojuegos.</h2></a>
-                        <p class="post-meta">
-                            Vea el artículo en el link de arriba
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="https://www.lanacion.com.ar/economia/comercio-exterior/gaming-la-industria-del-videojuego-se-encamina-hacia-una-nueva-primavera-nid17022022/">
-                            <h2 class="post-title">El crecimiento de la industria de los videojuegos</h2>
-                            <h3 class="post-subtitle">Predicciones basadas en estadísticas acerca del crecimiento de la industria del gaming</h3>
-                        </a>
-                        <p class="post-meta">
-                            Vea el artículo en el link de arriba
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview, viene del template-->
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
+                </div>
             </div>
-        </div>
+        </main>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
@@ -140,6 +92,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{% static 'AppCoder/js/scripts.js' %}"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>

@@ -1,0 +1,11 @@
+{%extends 'AppCoder/padre.html'%}
+    {%block form%}
+    {%for jugador in object_list%}
+    <p>Tag del Jugador : {{jugador.tag}}</p>
+    <button><a href="{% url 'JugadoresDetalle' jugador.id %}">Ver Detalle de Jugador</a></button>
+    <button><a href="{% url 'JugadoresActualizar' jugador.id%}">Editar Jugador</a></button>
+    <button><a href="{% url 'JugadoresBorrar' jugador.id%}">Borrar Jugador</a></button>
+    {%endfor%}
+    <br>
+    <a href="{% url 'JugadoresCrear'%}">Agregar Jugador</a>
+    {%endblock%}

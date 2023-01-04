@@ -1,0 +1,13 @@
+{%extends 'AppCoder/padre.html'%}
+
+{%block show%}
+    {%for game in games%}
+    <p>Nombre: {{game.nombre}}</p>
+    <p>Descripcion: {{game.descripcion}}</p>
+    <p>Reseña: {{game.resena}}</p>
+    <button><a href="{% url 'JuegosEliminar' game.nombre %}">Eliminar Juego</a></button>
+    <button><a href="{% url 'JuegosEditar' game.nombre %}">Editar Juego</a></button>
+    {%endfor%}
+    <br>
+    <button><a href="{% url 'JuegosCrear' %}">Agregar Juego</a></button>
+{%endblock%}

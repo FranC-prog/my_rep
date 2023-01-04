@@ -1,16 +1,16 @@
 {% extends "AppCoder/padre.html" %}
 {% load static %}
 {%block titulo%}
-Edita un Profesor
+Edita un Juego
 {%endblock%}
 
 {%block descripcion%}
-En esta vista se editan los profesores
+En esta vista se editan los juegos
 {%endblock%}
 {%block show%}
     <form action="" method="POST" center> {% csrf_token %}
         
-        <table>{{editprofeform.as_table}}</table>
+        <table>{{editjuegoform.as_table}}</table>
         
         <input type="submit" value="Confirmar">
         

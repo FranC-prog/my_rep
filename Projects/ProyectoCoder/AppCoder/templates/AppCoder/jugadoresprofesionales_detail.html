@@ -1,0 +1,7 @@
+{%extends 'AppCoder/padre.html'%}
+    {%block form%}
+    <p>Nombre: {{jugador.nombre}}</p>
+    <p>Tag: {{jugador.tag}}</p>
+    <p>Juego en el que se desempeña: {{jugador.juego}}</p>
+    <a href="{% url 'CursosLeer' %}">Regresar</a>
+    {%endblock%}

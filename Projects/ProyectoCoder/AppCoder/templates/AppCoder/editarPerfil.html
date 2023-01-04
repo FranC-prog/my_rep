@@ -1,18 +1,18 @@
 {% extends "AppCoder/padre.html" %}
 {% load static %}
 {%block titulo%}
-Cree un Profesor
+Editar usuario
 {%endblock%}
 
 {%block descripcion%}
-En esta vista se crean los profesores
+Aquí se edita al usuario
 {%endblock%}
-{%block form%}
+{%block show%}
     <form action="" method="POST" center> {% csrf_token %}
         
-        <table>{{profeform.as_table}}</table>
+        {{formulario.as_p}}
         
-        <input type="submit" value="Confirmar">
+        <button type="submit">Guardar cambios</button>
         
     </form>
 {%endblock%}

@@ -1,0 +1,11 @@
+{% extends 'AppCoder/padre.html' %}
+{%block form%}
+
+<form action="" method="POST"> {% csrf_token %}
+        
+    <table>{{form1.as_table}}</table>
+    
+    <input type="submit" value="Confirmar">
+    
+</form>
+{% endblock %}

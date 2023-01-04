@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Estamos buscando la camada:{{camada}}, los cursos que la contienen son:
+{%extends 'AppCoder/padre.html'%}
+{%block searchbar%}
+    <p>Estamos buscando el juego:{{juego}}
         {% for curso in cursos %}
         <p>Nombre: {{curso.nombre}}
             <br>
@@ -15,5 +8,4 @@
         </p>
         {% endfor %}
     </p>
-</body>
-</html>
+{%endblock%}

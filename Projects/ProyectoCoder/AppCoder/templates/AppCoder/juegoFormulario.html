@@ -1,0 +1,18 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{%block titulo%}
+Agregue un juego a nuestra página
+{%endblock%}
+
+{%block descripcion%}
+En esta vista se agregan los juegos
+{%endblock%}
+{%block form%}
+<form action="" method="POST"> {% csrf_token %}
+        
+    <table>{{form1.as_table}}</table>
+    
+    <input type="submit" value="Confirmar">
+    
+</form>
+{%endblock%}
