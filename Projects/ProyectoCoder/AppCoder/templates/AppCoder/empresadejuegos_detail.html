@@ -1,0 +1,7 @@
+{%extends 'AppCoder/padre.html'%}
+    {%block form%}
+    <p>Nombre: {{empresadejuegos.nombre}}</p>
+    <p>País de Origen: {{empresadejuegos.paisOrigen}}</p>
+    <p>Juegos de la empresa: {{empresadejuegos.juegosDeEmpresa}}</p>
+    <button><a href="{% url 'EmpresasLeer' %}">Regresar</a></button>
+    {%endblock%}

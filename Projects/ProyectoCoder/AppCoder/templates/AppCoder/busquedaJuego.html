@@ -1,16 +1,18 @@
 {% extends "AppCoder/padre.html" %}
 {% load static %}
 {%block titulo%}
-Busque una camada
+Busque un juego
 {%endblock%}
 
 {%block descripcion%}
-En esta vista se buscan las camadas
+En esta vista se buscan los juegos
 {%endblock%}
-{%block form%}
+{%block searchbar%}
     <form action="/resultados" method="GET" text_align="justify">
         Busque un juego: 
-        <input type="charset" name="nombre" id="nombre">
+        <input type="text" name="nombre" id="nombre">
         <input type="submit" value="Buscar">
     </form>
+    <br>
+<button><a href="{%url 'JuegosLeer'%}">Vea todos los juegos</a></button>
 {%endblock%}

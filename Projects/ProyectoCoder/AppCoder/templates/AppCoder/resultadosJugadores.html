@@ -1,0 +1,14 @@
+{%extends 'AppCoder/padre.html'%}
+{%block form %}
+    <p>Buscaste el jugador: "{{tag}}"
+        <br>
+        Los jugadores cuyo tag contiene "{{tag}}" son:
+        {% for jugador in players %}
+        <p> Nombre: {{jugador.nombre}}</p>
+        <p> Tag: {{jugador.tag}}</p>
+        <p> Juego en el que se desempeña: {{jugador.juego}}</p>
+
+        <br>
+        {% endfor %}
+    </p>
+{%endblock%}

@@ -1,8 +1,8 @@
 {% extends 'AppCoder/padre.html' %}
 {%block form%}
 <form action="" method="POST"> {% csrf_token %}
-    <p>¿Estás seguro de eliminar este jugador?</p>
+    <p>¿Estás seguro de eliminar esta empresa?</p>
     <input type="submit" value="Confirmar">
-    <button><a href ="{% url 'JugadoresLeer' %}">Regresar</a></button>
+    <button><a href ="{% url 'EmpresasLeer' %}">Regresar</a></button>
 </form>
 {%endblock%}

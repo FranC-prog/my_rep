@@ -29,7 +29,12 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'AcercaDe' %}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Contacto' %}">Contactame</a></li>
-                        
+                        <!--Barras de búsqueda-->
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'BuscarJuego' %}">Busque un juego</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'JugadoresBuscar' %}">Busque un jugador</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'JuegosLeer' %}">Vea todos los juegos</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'JugadoresLeer' %}">Vea todos los jugadores</a></li>  
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'EmpresasLeer' %}">Vea todas las empresas</a></li>  
                         {%if not request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Login' %}">Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Registro' %}">Registrarse</a></li>
@@ -62,6 +67,8 @@
                             </h1>
                             <span class="subheading">{%block descripcion%}
                                 {%endblock%}
+                                <br>
+                                <br>
                                 {%block searchbar%}
                                 {%endblock%}
                             </span>
@@ -78,6 +85,8 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     {%block form%}
                     {%endblock%}
+                    <br>
+                    <br>
                     <!-- Post preview-->
                     <div class="post-preview">
                         <a href="https://thegoodgamer.es/los-videojuegos-un-medio-para-lidiar-con-la-salud-mental/#:~:text=El%2030%25%20de%20los%20jugadores,salud%20mental%20durante%20el%20confinamiento.">

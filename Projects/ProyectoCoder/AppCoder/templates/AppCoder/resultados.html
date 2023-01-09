@@ -1,11 +1,15 @@
 {%extends 'AppCoder/padre.html'%}
-{%block searchbar%}
-    <p>Estamos buscando el juego:{{juego}}
-        {% for curso in cursos %}
-        <p>Nombre: {{curso.nombre}}
-            <br>
-            Camada: {{curso.camada}}
-        </p>
+{%block form %}
+    <p>Buscaste el juego: "{{nombre}}"
+        <br>
+        Los juegos cuyo nombre contiene "{{nombre}}" son:
+        {% for game in matches %}
+        <p> Nombre: {{game.nombre}}</p>
+        <p> Descripción: {{game.descripcion}}</p>
+        <p> Reseña: {{game.resena}}</p>
+
+        <br>
         {% endfor %}
+        <button><a href="{%url 'BuscarJuego'%}">Regresar</a></button>
     </p>
 {%endblock%}

@@ -1,14 +1,14 @@
 {%extends 'AppCoder/padre.html'%}
 {%block titulo%}
-Agrega un jugador
+Agrega una empresa de juegos
 {%endblock%}
 {%block descripcion%}
-En esta vista se añaden los jugadores
+En esta vista se añaden las empresas
 {%endblock%}
 {%block form%}    
 <form action="" method="POST"> {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Enviar">
     </form>
-    <button><a href="{%url 'JugadoresLeer'%}">Regresar</a></button>
+    <button><a href="{%url 'EmpresasLeer'%}">Regresar</a></button>
 {%endblock%}

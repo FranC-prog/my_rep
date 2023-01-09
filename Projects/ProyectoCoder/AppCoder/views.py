@@ -11,29 +11,44 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+#Vista de inicio
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
 def juegoFormulario(request):
     if request.method == "POST":
-        formulario1 = CursoFormulario(request.POST)
+        formulario1 = JuegoFormulario(request.POST)
         if formulario1.is_valid():
             info = formulario1.cleaned_data
-            curso = Curso(nombre = info["nombre"], camada=info["camada"])
-            curso.save()
+            juego = Juego(nombre = info["nombre"], descripcion=info["descripcion"], resena=info["resena"])
+            juego.save()
             return render(request, "AppCoder/inicio.html")
     else:
-        formulario1 = CursoFormulario()
+        formulario1 = JuegoFormulario()
     return render(request,"AppCoder/juegoFormulario.html",{'form1': formulario1})
+#Buscar y encontrar juegos
+def buscarJugador(request):
+    return render(request, "AppCoder/buscarJugadores.html")
 
+def resultadosJugador(request):
+    if request.GET["tag"]:
+        jugador = request.GET["tag"]
+        matches = JugadoresProfesionales.objects.filter(tag__icontains = jugador)
+        return render(request, "AppCoder/resultadosJugadores.html", {"players": matches, "tag":jugador})
+    else:
+        respuesta = "No enviaste datos."
+        
+    return HttpResponse(respuesta)
+
+#Buscar y encontrar jugadores profesionales
 def busquedaJuego(request):
     return render(request, "AppCoder/busquedaJuego.html")
 
 def resultadosJuego(request):
     if request.GET["nombre"]:
         juego = request.GET["nombre"]
-        matches = Juego.objects.filter(juego__icontains = juego)
-        return render(request, "AppCoder/inicio.html", {"juegos": matches, "nombre":juego})
+        matches = Juego.objects.filter(nombre__icontains = juego)
+        return render(request, "AppCoder/resultados.html", {"matches": matches, "nombre":juego})
     else:
         respuesta = "No enviaste datos."
         
@@ -75,15 +90,15 @@ def editarJuegos(request, juegoNombre):
             info = formulario1.cleaned_data
             juego.nombre = info["nombre"]
             juego.descripcion = info["descripcion"]
-            juego.resena = info["resena"]
+            juego.resena = info["reseña"]
             juego.save()
             return render(request, "AppCoder/inicio.html")
     else:
         formulario1 = JuegoFormulario(initial={"nombre" : juego.nombre, 
                                                "descripcion":juego.descripcion,
-                                               "resena":juego.resena,
+                                               "reseña":juego.resena,
                                                })
-    return render(request,"AppCoder/editarJuego.html",{'editjuegoform': formulario1, 'nombre':profeNombre})
+    return render(request,"AppCoder/editarJuegos.html",{'editjuegoform': formulario1, 'nombre':juegoNombre})
 
 
 #CRUD CURSO/Jugadores

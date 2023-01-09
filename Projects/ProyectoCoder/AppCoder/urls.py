@@ -22,12 +22,14 @@ urlpatterns = [
     path("jugadores/crear", CrearJugadores.as_view(), name = "JugadoresCrear"),
     path("jugadores/editar/<int:pk>",ActualizarJugadores.as_view(), name="JugadoresActualizar"),
     path("jugadores/borrar/<int:pk>",BorrarJugadores.as_view(), name="JugadoresBorrar"),
+    path("buscarJugadores/", buscarJugador, name="JugadoresBuscar"),
+    path("resultadosJugadores/",resultadosJugador,name="JugadoresResultados"),
     # #CRUD Empresas con clases
-    # path("empresas/list",ListaEmpresas.as_view(), name="JugadoresLeer"),
-    # path("empresas/<int:pk>",DetalleEmpresas.as_view(), name="JugadoresDetalle"),
-    # path("empresas/crear", CrearEmpresas.as_view(), name = "JugadoresCrear"),
-    # path("empresas/editar/<int:pk>",ActualizarEmpresas.as_view(), name="JugadoresActualizar"),
-    # path("empresas/borrar/<int:pk>",BorrarEmpresas.as_view(), name="JugadoresBorrar"),
+     path("empresas/list",ListaEmpresas.as_view(), name="EmpresasLeer"),
+     path("empresas/<int:pk>",DetalleEmpresas.as_view(), name="EmpresasDetalle"),
+     path("empresas/crear", CrearEmpresas.as_view(), name = "EmpresasCrear"),
+     path("empresas/editar/<int:pk>",ActualizarEmpresas.as_view(), name="EmpresasActualizar"),
+     path("empresas/borrar/<int:pk>",BorrarEmpresas.as_view(), name="EmpresasBorrar"),
     
     #Iniciar Sesión y registro
     path("login/", iniciarsesion,name="Login"),

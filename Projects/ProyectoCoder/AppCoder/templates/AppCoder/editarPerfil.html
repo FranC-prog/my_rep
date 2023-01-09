@@ -11,7 +11,7 @@ Aquí se edita al usuario
     <form action="" method="POST" center> {% csrf_token %}
         
         {{formulario.as_p}}
-        
+        <button><a href="{%url 'Avatar'%}">Agregue un Avatar</a></button>
         <button type="submit">Guardar cambios</button>
         
     </form>

@@ -1,0 +1,18 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{%block titulo%}
+Busque un jugador
+{%endblock%}
+
+{%block descripcion%}
+En esta vista se buscan los jugadores profesionales registrados en la página
+{%endblock%}
+{%block searchbar%}
+    <form action="/resultadosJugadores" method="GET" text_align="justify">
+        Busque un jugador: 
+        <input type="text" name="tag" id="tag">
+        <input type="submit" value="Buscar">
+    </form>
+    <br>
+<button><a href="{%url 'JugadoresLeer'%}">Vea todos los jugadores</a></button>
+{%endblock%}

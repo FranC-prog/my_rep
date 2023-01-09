@@ -10,9 +10,14 @@ class JugadorFormulario(forms.Form):
     juego = forms.CharField()
     
 class JuegoFormulario(forms.Form):
+    nombre = forms.CharField(max_length=50)
+    descripcion = forms.CharField(max_length = 150)
+    reseña = forms.CharField(max_length=150)
+    
+class EmpresaFormulario(forms.Form):
     nombre = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length = 50)
-    resena = models.CharField(max_length=50)
+    juegosDeEmpresa = models.CharField(max_length = 100)
+    PaisDeOrigen = models.CharField(max_length=254)
 
 class UsuarioRegistro(UserCreationForm):
     email = forms.EmailField()

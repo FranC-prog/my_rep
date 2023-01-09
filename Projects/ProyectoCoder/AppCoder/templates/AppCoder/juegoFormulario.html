@@ -9,10 +9,12 @@ En esta vista se agregan los juegos
 {%endblock%}
 {%block form%}
 <form action="" method="POST"> {% csrf_token %}
-        
+     Agregue un juego:   
     <table>{{form1.as_table}}</table>
     
     <input type="submit" value="Confirmar">
     
 </form>
+
+<button><a href="{%url 'JuegosLeer'%}">Regresar</a></button>
 {%endblock%}

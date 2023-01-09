@@ -1,0 +1,11 @@
+{%extends 'AppCoder/padre.html'%}
+    {%block form%}
+    {%for empresa in object_list%}
+    <p>Nombre de la empresa : {{empresa.nombre}}</p>
+    <button><a href="{% url 'EmpresasDetalle' empresa.id %}">Ver Detalle de la Empresa</a></button>
+    <button><a href="{% url 'EmpresasActualizar' empresa.id%}">Editar Empresa</a></button>
+    <button><a href="{% url 'EmpresasBorrar' empresa.id%}">Borrar Empresa</a></button>
+    {%endfor%}
+    <br>
+    <a href="{% url 'EmpresasCrear'%}">Agregar Empresa</a>
+    {%endblock%}

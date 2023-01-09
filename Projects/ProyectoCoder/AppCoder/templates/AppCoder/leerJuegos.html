@@ -1,5 +1,8 @@
 {%extends 'AppCoder/padre.html'%}
+{%block titulo%} Lista de Juegos
+{%endblock%}
 
+{%block descripcion%} Esta es la lista de todos los juegos que hay actualmente en la página {%endblock%}
 {%block show%}
     {%for game in games%}
     <p>Nombre: {{game.nombre}}</p>
@@ -10,4 +13,4 @@
     {%endfor%}
     <br>
     <button><a href="{% url 'JuegosCrear' %}">Agregar Juego</a></button>
-{%endblock%}
+    {%endblock%}
